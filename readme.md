@@ -1,49 +1,50 @@
 # Django Channels Project
 
-This project demonstrates the use of Django Channels to implement real-time features in a Django application.
+Este proyecto demuestra el uso de Django Channels para implementar características en tiempo real en una aplicación Django.
 
-## Features
+## Características
 
-- Real-time chat application using WebSockets
-- Django Channels integration
-- Redis as the channel layer backend
+- Aplicación de chat en tiempo real usando WebSockets
+- Integración con Django Channels
+- Redis como backend de capa de canales
 
-## Requirements
+## Requisitos
 
-- Python 3.8 or higher
+- Python 3.8 o superior
 - Django 5.1
 - Channels 4.2
-- Redis server
+- Servidor Redis
+- Docker (opcional, para la contenedorización)
 
-## Installation
+### Sin Docker
 
-1. Clone the repository:
+1. Clona el repositorio:
 
    ```sh
    git clone https://github.com/joseyx/django-channels-pt1.git
    cd django-channels-pt1
    ```
 
-2. Create and activate a virtual environment:
+2. Crea y activa un entorno virtual:
 
    ```sh
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   venv\Scripts\activate
    ```
 
-3. Install the dependencies:
+3. Instala las dependencias:
 
    ```sh
    pip install -r requirements.txt
    ```
 
-4. Install Redis (if not already installed) and start the Redis server.
+4. Instala Redis (si no está instalado) y arranca el servidor Redis.
 
 ## Configuration
 
-1. Update the `DATABASES` setting in `mysite/settings.py` if you are not using SQLite.
+1. Actualiza la configuración de DATABASES en mysite/settings.py si no estás usando SQLite.
 
-2. Ensure the `CHANNEL_LAYERS` setting in `mysite/settings.py` is configured to use Redis:
+2. Asegúrate de que la configuración de CHANNEL_LAYERS en mysite/settings.py esté configurada para usar Redis:
 
    ```python
    CHANNEL_LAYERS = {
@@ -56,18 +57,55 @@ This project demonstrates the use of Django Channels to implement real-time feat
    }
    ```
 
-## Running the Project
+## Ejecutando el Proyecto
 
-1. Apply the migrations:
+1. Aplica las migraciones::
 
    ```sh
    python manage.py migrate
    ```
 
-2. Start the Django development server:
+2. Arranca el servidor de desarrollo de Django::
 
    ```sh
    python manage.py runserver
    ```
 
-3. Open your browser and navigate to `http://127.0.0.1:8000/` to see the application in action.
+3. Abre tu navegador y navega a http://127.0.0.1:8000/ para ver la aplicación en acción.
+
+### Con Docker
+
+1. Clona el repositorio:
+
+   ```sh
+   git clone https://github.com/joseyx/django-channels-pt1.git
+   cd django-channels-pt1
+   ```
+
+2. Construye y arranca los contenedores Docker:
+
+   ```sh
+   docker-compose up --build
+   ```
+
+3. Aplica las migraciones:
+
+   ```sh
+   docker-compose exec web python ./mysite/manage.py migrate
+   ```
+
+4. Abre tu navegador y navega a http://127.0.0.1:8000/ para ver la aplicación en acción.
+
+## Comandos de django con docker
+
+1. Acceso a la Shell de Django
+
+   ```sh
+   docker-compose exec web python ./mysite/manage.py shell
+   ```
+
+2. Crear un Superusuario
+
+   ```sh
+   docker-compose exec web python ./mysite/manage.py createsuperuser
+   ```
