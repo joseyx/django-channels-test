@@ -16,7 +16,7 @@ Este proyecto demuestra el uso de Django Channels para implementar característi
 - Servidor Redis
 - Docker (opcional, para la contenedorización)
 
-### Sin Docker
+## Sin Docker
 
 1. Clona el repositorio:
 
@@ -40,7 +40,7 @@ Este proyecto demuestra el uso de Django Channels para implementar característi
 
 4. Instala Redis (si no está instalado) y arranca el servidor Redis.
 
-## Configuration
+### Configuracion
 
 1. Actualiza la configuración de DATABASES en mysite/settings.py si no estás usando SQLite.
 
@@ -57,7 +57,7 @@ Este proyecto demuestra el uso de Django Channels para implementar característi
    }
    ```
 
-## Ejecutando el Proyecto
+### Ejecutando el Proyecto
 
 1. Aplica las migraciones::
 
@@ -73,7 +73,7 @@ Este proyecto demuestra el uso de Django Channels para implementar característi
 
 3. Abre tu navegador y navega a http://127.0.0.1:8000/ para ver la aplicación en acción.
 
-### Con Docker
+## Con Docker
 
 1. Clona el repositorio:
 
@@ -96,7 +96,7 @@ Este proyecto demuestra el uso de Django Channels para implementar característi
 
 4. Abre tu navegador y navega a http://127.0.0.1:8000/ para ver la aplicación en acción.
 
-## Comandos de django con docker
+### Comandos de django con docker
 
 1. Acceso a la Shell de Django
 
